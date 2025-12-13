@@ -18,24 +18,17 @@ Works with **CLI-based** AI coding tools that launch from terminal:
 
 ## Installation
 
-1. Clone to mise-uv-interceptor directory:
-
-```bash
-git clone https://github.com/bhanutejags/mise-uv-interceptor ~/.local/share/mise-uv-interceptor
-```
-
-2. Symlink to mise plugins:
-
-```bash
-ln -sf ~/.local/share/mise-uv-interceptor ~/.local/share/mise/plugins/mise-uv-interceptor
-```
-
-3. Add to your project's `.mise.toml`:
+Add to your project's `.mise.toml`:
 
 ```toml
+[plugins]
+mise-uv-interceptor = "https://github.com/bhanutejags/mise-uv-interceptor"
+
 [env]
 _.mise-uv-interceptor = {}
 ```
+
+Then run `mise install` to install the plugin.
 
 ## How it works
 
