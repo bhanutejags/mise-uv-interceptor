@@ -1,4 +1,4 @@
 function PLUGIN:MisePath(ctx)
-	local home = os.getenv("HOME")
-	return { home .. "/.local/share/mise/plugins/mise-uv-interceptor/bin" }
+	local data_dir = os.getenv("MISE_DATA_DIR") or (os.getenv("HOME") .. "/.local/share/mise")
+	return { data_dir .. "/plugins/mise-uv-interceptor/bin" }
 end
