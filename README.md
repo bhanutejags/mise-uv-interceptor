@@ -16,6 +16,10 @@ mise-uv-interceptor = "https://github.com/bhanutejags/mise-uv-interceptor"
 _.mise-uv-interceptor = {}
 ```
 
+## How it works
+
+Wraps AI tool binaries (e.g., `claude`) to prepend interceptors to PATH for their subprocesses only.
+
 ## What it intercepts
 
 | Command              | Suggests           |
