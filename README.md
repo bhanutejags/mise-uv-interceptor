@@ -1,10 +1,22 @@
 # mise-uv-interceptor
 
-A [mise env plugin](https://mise.jdx.dev/dev-tools/backends/env-plugins.html) that intercepts `python` and `pip` commands **only within Claude Code**, guiding it toward [uv](https://docs.astral.sh/uv/).
+A [mise env plugin](https://mise.jdx.dev/dev-tools/backends/env-plugins.html) that intercepts `python` and `pip` commands within **terminal-based AI coding tools**, guiding them toward [uv](https://docs.astral.sh/uv/).
 
-Your shell's `python` remains unaffected - only Claude's subprocesses see the interceptor.
+Your shell's `python` remains unaffected - only the AI tool's subprocesses see the interceptor.
 
 Inspired by [pydevtools interceptors](https://pydevtools.com/blog/interceptors/). Generated with Claude Code.
+
+## Supported tools
+
+Works with **CLI-based** AI coding tools that launch from terminal:
+
+- Claude Code (`claude`)
+- aider
+- opencode
+- Gemini CLI (`gemini`)
+- OpenAI Codex (`codex`)
+
+**Does not work** with IDE-based tools (Cursor, Copilot, Windsurf, Cody) - they spawn processes directly without going through shell PATH.
 
 ## Installation
 
@@ -52,7 +64,7 @@ The plugin adds a `claude` wrapper to PATH that:
 1. Prepends `interceptors/` directory to PATH
 2. Executes the real `claude` binary
 
-Claude's subprocesses then see the interceptors first.
+The AI tool's subprocesses then see the interceptors first.
 
 ## What it intercepts
 
