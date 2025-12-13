@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# mise-uv-interceptor: Intercept python commands to guide AI agents toward uv
+# https://github.com/bhanutejags/mise-uv-interceptor
+
+cat >&2 <<'EOF'
+╭─────────────────────────────────────────────────────────────╮
+│  ⚠️  Direct python invocation intercepted                    │
+├─────────────────────────────────────────────────────────────┤
+│  This project uses uv for Python management.                │
+│                                                             │
+│  Instead of:  python script.py                              │
+│  Use:         uv run script.py                              │
+│                                                             │
+│  Instead of:  python -c "code"                              │
+│  Use:         uv run python -c "code"                       │
+│                                                             │
+│  Instead of:  python -m module                              │
+│  Use:         uv run python -m module                       │
+╰─────────────────────────────────────────────────────────────╯
+EOF
+exit 1

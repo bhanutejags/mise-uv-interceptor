@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# mise-uv-interceptor: Wrapper that adds python/pip interceptors to Claude's PATH
+# https://github.com/bhanutejags/mise-uv-interceptor
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+INTERCEPTOR_DIR="$SCRIPT_DIR/../interceptors"
+
+# Prepend interceptors to PATH for Claude's subprocesses
+export PATH="$INTERCEPTOR_DIR:$PATH"
+
+# Find the real claude binary (skip our wrapper)
+REAL_CLAUDE=$(which -a claude | grep -v mise-uv-interceptor | head -1)
+
+if [[ -z "$REAL_CLAUDE" ]]; then
+    echo "Error: Could not find real claude binary" >&2
+    exit 1
+fi
+
+exec "$REAL_CLAUDE" "$@"
