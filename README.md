@@ -16,11 +16,9 @@ _.mise-uv-interceptor = {}
 
 ## What it intercepts
 
-| Command              | Suggests           |
-| -------------------- | ------------------ |
-| `python script.py`   | `uv run script.py` |
-| `pip install pkg`    | `uv add pkg`       |
-| `pip install -r ...` | `uv sync`          |
+- `python ...` → use `uv run ...`
+- `pip install` → use `uv add`
+- `pip install -r` → use `uv sync`
 
 ## References
 
