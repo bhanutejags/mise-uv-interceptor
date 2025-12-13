@@ -16,8 +16,6 @@ Works with **CLI-based** AI coding tools that launch from terminal:
 - Gemini CLI (`gemini`)
 - OpenAI Codex (`codex`)
 
-**Does not work** with IDE-based tools (Cursor, Copilot, Windsurf, Cody) - they spawn processes directly without going through shell PATH.
-
 ## Installation
 
 1. Clone to mise-uv-interceptor directory:
