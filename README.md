@@ -24,6 +24,12 @@ _.mise-uv-interceptor = {}
 | `pip install pkg`    | `uv add pkg`       |
 | `pip install -r ...` | `uv sync`          |
 
+## References
+
+- [mise env plugins](https://mise.jdx.dev/dev-tools/backends/env-plugins.html)
+- [pydevtools interceptors](https://pydevtools.com/blog/interceptors/)
+- [uv](https://docs.astral.sh/uv/)
+
 ## License
 
 MIT
