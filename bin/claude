@@ -8,7 +8,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 INTERCEPTOR_DIR="$SCRIPT_DIR/../interceptors"
 
 # Debug: uncomment to verify wrapper is running
-# echo "[mise-uv-interceptor] Prepending $INTERCEPTOR_DIR to PATH" >&2
+# echo "[mise-uv-interceptor] Wrapper called, PATH will have: $INTERCEPTOR_DIR" >&2
 
 # Prepend interceptors to PATH for Claude's subprocesses
 export PATH="$INTERCEPTOR_DIR:$PATH"
