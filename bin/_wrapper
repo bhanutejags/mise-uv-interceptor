@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# mise-uv-interceptor: Shared wrapper that adds python/pip interceptors to PATH
+# https://github.com/bhanutejags/mise-uv-interceptor
+#
+# This script determines the target binary from how it was invoked (via symlink).
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+INTERCEPTOR_DIR="$SCRIPT_DIR/../interceptors"
+BINARY_NAME="$(basename "$0")"
+
+# Prepend interceptors to PATH for subprocesses
+export PATH="$INTERCEPTOR_DIR:$PATH"
+
+# Find the real binary (skip our wrapper)
+REAL_BINARY=$(which -a "$BINARY_NAME" | grep -v mise-uv-interceptor | head -1)
+
+if [[ -z "$REAL_BINARY" ]]; then
+    echo "Error: Could not find real $BINARY_NAME binary" >&2
+    exit 1
+fi
+
+exec "$REAL_BINARY" "$@"
