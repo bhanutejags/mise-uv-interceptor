@@ -17,7 +17,7 @@ cat >&2 <<'EOF'
 │  Use:         uv run python -c "code"                       │
 │                                                             │
 │  Instead of:  python -m module                              │
-│  Use:         uv run python -m module                       │
+│  Use:         uv run -m module                              │
 ╰─────────────────────────────────────────────────────────────╯
 EOF
 exit 1
